@@ -20,11 +20,17 @@
 <hr/>
 
 ## 하드웨어 브링업
-- 구현률 : 10%(누적)
+- 구현률 : 20%(누적)
 - 24.11.28(오후), 하드웨어 브링업 5% 작업, 김재환
   - ros-foxy 설치, turtlebot_lib설치, 센서관련 드라이버 설치  
 - 24.11.29(오전), 하드웨어 브링업 5% 작업, 김재환
   - 브링업 관련 보드 및 dc모터 점검
+- 24.11.29(오후), 하드웨어 브링업 10% 작업, 김재환
+  - opencr 보드 펌웨어 점검, ros_domain 설정, teleop control 확인
+- 24.11.30 하드웨어 브링업 ??% 작업, 김재환
+  - [ros2_control_node-2] [ERROR] [DynamixelSDKWrapper] [TxRxResult] There is no status packet!
+  - 브링업중 위 에러 해결 
+   
 <hr/> 
 
 ## 오픈소스 음성인식 API 기반 의사소통 시스템
