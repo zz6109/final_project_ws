@@ -15,4 +15,4 @@
 3. whisper_test.py 작성
 
 - 오후
-1. 
+1. whisper_test.py 수정 및 테스트
