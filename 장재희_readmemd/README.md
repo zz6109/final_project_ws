@@ -16,3 +16,21 @@
 
 - 오후
 1. whisper_test.py 수정 및 테스트
+
+# 24.12.03
+
+- 오전
+1. respeaker_turtlebot_test.py 작성
+2. respeaker_turtlebot_test.py 테스트
+
+- 오후
+1. respeaker_turtlebot.py 작성
+
+# 24.12.04
+
+- 오전
+1. respeaker_turtlebot.py 작성 및 수정
+
+- 오후
+1. respeaker_turtlebot.py 오류 수정
+2. respeaker_turtlebot.py 테스트
