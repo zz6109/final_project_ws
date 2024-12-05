@@ -1,0 +1,5 @@
+[console_scripts]
+respeaker_turtlebot = res_turtlebot.respeaker_turtlebot:main
+respeaker_turtlebot_test.py = res_turtlebot.respeaker_turtlebot_test.py:main
+tuning = res_turtlebot.tuning:main
+

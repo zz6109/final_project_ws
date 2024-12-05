@@ -1,0 +1,19 @@
+[1.480s] Invoking command in '/home/test/Desktop/Respeaker/res_turtlebot/build/res_turtlebot': PYTHONPATH=/home/test/Desktop/Respeaker/res_turtlebot/build/res_turtlebot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/test/Desktop/Respeaker/res_turtlebot/install/res_turtlebot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/test/Desktop/Respeaker/res_turtlebot/build/res_turtlebot/build --no-deps symlink_data
+[2.067s] running develop
+[2.398s] running egg_info
+[2.398s] writing res_turtlebot.egg-info/PKG-INFO
+[2.398s] writing dependency_links to res_turtlebot.egg-info/dependency_links.txt
+[2.398s] writing entry points to res_turtlebot.egg-info/entry_points.txt
+[2.398s] writing requirements to res_turtlebot.egg-info/requires.txt
+[2.399s] writing top-level names to res_turtlebot.egg-info/top_level.txt
+[2.404s] reading manifest file 'res_turtlebot.egg-info/SOURCES.txt'
+[2.404s] writing manifest file 'res_turtlebot.egg-info/SOURCES.txt'
+[2.407s] running build_ext
+[2.407s] Creating /home/test/Desktop/Respeaker/res_turtlebot/install/res_turtlebot/lib/python3.10/site-packages/res-turtlebot.egg-link (link to .)
+[2.411s] Installing respeaker_turtlebot script to /home/test/Desktop/Respeaker/res_turtlebot/install/res_turtlebot/lib/res_turtlebot
+[2.411s] Installing respeaker_turtlebot_test.py script to /home/test/Desktop/Respeaker/res_turtlebot/install/res_turtlebot/lib/res_turtlebot
+[2.411s] Installing tuning script to /home/test/Desktop/Respeaker/res_turtlebot/install/res_turtlebot/lib/res_turtlebot
+[2.412s] 
+[2.412s] Installed /home/test/Desktop/Respeaker/res_turtlebot/build/res_turtlebot
+[2.412s] running symlink_data
+[2.472s] Invoked command in '/home/test/Desktop/Respeaker/res_turtlebot/build/res_turtlebot' returned '0': PYTHONPATH=/home/test/Desktop/Respeaker/res_turtlebot/build/res_turtlebot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/test/Desktop/Respeaker/res_turtlebot/install/res_turtlebot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/test/Desktop/Respeaker/res_turtlebot/build/res_turtlebot/build --no-deps symlink_data

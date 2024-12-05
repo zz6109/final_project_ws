@@ -1,0 +1,15 @@
+package.xml
+setup.cfg
+setup.py
+res_turtlebot/__init__.py
+res_turtlebot/respeaker_turtlebot.py
+res_turtlebot/respeaker_turtlebot_test.py
+res_turtlebot/tuning.py
+res_turtlebot.egg-info/PKG-INFO
+res_turtlebot.egg-info/SOURCES.txt
+res_turtlebot.egg-info/dependency_links.txt
+res_turtlebot.egg-info/entry_points.txt
+res_turtlebot.egg-info/requires.txt
+res_turtlebot.egg-info/top_level.txt
+res_turtlebot.egg-info/zip-safe
+resource/res_turtlebot
