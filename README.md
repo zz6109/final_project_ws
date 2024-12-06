@@ -70,9 +70,26 @@
 
 ## 오프라인 음성 인식 엔진 기반 360도 음성 감지 및 추적
 - 구현률 : 70%
-- 24.12.??(오전) 10%, 장재희
-- 24.12.??(오후) 10%, 장재희
-
+- 24.11.28(오전) 음성 인식 엔진 학습 2%, 장재희
+  - Google Assistant API 사용 방법 학습
+- 24.11.28(오후) 하드웨어 탐구 2%, 장재희
+  - ReSpeaker USB Mic Array 사용 방법 학습 
+- 24.11.29(오전) 음성 인식 엔진 학습 2%, 장재희
+  - OpenAI Whisper 사용 방법 학습
+  - OpenAI Whisper 설치
+  - whisper_test.py 작성
+- 24.11.29(오후) 음성 인식 엔진 학습 2%, 장재희
+  - whisper_test.py 수정 및 테스트
+- 24.12.03(오전) 음성 인식 엔진 학습 2%, 장재희
+  - respeaker_turtlebot_test.py 작성
+  - respeaker_turtlebot_test.py 테스트
+- 24.12.03(오후) 음성 인식 엔진 학습 2%, 장재희
+  - respeaker_turtlebot.py 작성
+- 24.12.04(오전) 음성 인식 엔진 학습 2%, 장재희
+  - respeaker_turtlebot.py 작성 및 수정
+- 24.12.04(오후) 음성 인식 엔진 학습 2%, 장재희
+  - respeaker_turtlebot.py 오류 수정
+  - respeaker_turtlebot.py 테스트
 - 24.12.05(오후) speech_recognition 엔진 기반 음성 감지 및 각도 출력 노드 설정 50%, 김재환
   - speech_recognition 엔진은 온라인 클라우드 서비스 기반이어서 오프라인 환경에 제한이 있을수 있으므로 오프라인 엔진으로 교체할 예정
 - 24.12.06(오전) 오프라인 한국어 인식 엔진 사용 노드 제작 ??%, 김재환
