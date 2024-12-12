@@ -15,7 +15,7 @@
   - 전체 시퀸스 종료 시 혹은 특정 명령시 충전소로 돌아가는것으로 변경
 <hr/>
 
-# 프로젝트 전체 완성률 < 66% >
+# 프로젝트 전체 완성률 < 82% >
 <hr/>
 
 ## 사고구조 로봇 하드웨어 제작
@@ -32,9 +32,11 @@
 <hr/>
 
 ## 하드웨어 브링업
-- 구현률 : 80%(누적)
+- 구현률 : 100%(누적)
 - 24.11.28(오후), 하드웨어 브링업 5% 작업, 김재환
-  - ros-foxy 설치, turtlebot_lib설치, 센서관련 드라이버 설치  
+  - ros-foxy 설치, turtlebot_lib설치, 센서관련 드라이버 설치
+  - 참고한 링크-https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html
+  - 참고한 링크-https://emanual.robotis.com/docs/en/platform/turtlebot3/manipulation/#turtlebot3-with-openmanipulator  
 - 24.11.29(오전), 하드웨어 브링업 5% 작업, 김재환
   - 브링업 관련 보드 및 dc모터 점검
 - 24.11.29(오후), 하드웨어 브링업 10% 작업, 김재환
@@ -45,7 +47,7 @@
   - 해결책 1. 노트북에 도커를 설치해서 폭시로 버전 맞추어 브링업 X
   - 해결책 2. 터틀봇에 패키지를 핫픽스 버전으로 재설치 X
   - 해결책 3. 브링업 및 서보 관련 파일 전부 호환성 체크 X
-  - 해결불가
+  - 해결불가, 작동에 영향없음
 - 24.12.02(오후) 하드웨어 브링업 2% 작업, 김재환
   - 기존 teleop코드가 tf의 위치를 기준으로 키보드의 입력을 받아 moveit으로 자동계산 되어 움직임이 산출됨, 조금만 움직이면 임계값에 도달하여 시스템이 죽음
   - moveit을 사용하지 않은 teleop 코드 작성
@@ -79,10 +81,10 @@
   - TF가 받는 odom id를 Lio-sam 노드가 출력하는 odom id로 변경, lio-sim이 험블에서만 오류없이 빌드 되어서 폭시인 현재 젯슨 자비에 nx에서 사용하는데 어려움이 있음
   - 20.04에 docker로 험블을 사용하는걸로 다음에 시도 해보면 좋을것 같음
   - wheel 서보모터가 매니퓰레이터 관절을 id만 바꿔서 장착한 것이 문제였고 기존 버거 서보모터로 교체후 tf회전 현상 없어짐
-- 24.12.??(??) 하드웨어 브링업??%, 김재환
-  - 인텔 뎁스카메라를 기존에 설정된 pi카메라를 대체한 기본 카메라로 설정
-  - 기존 bringup.launch.py에 로봇팔 모드 전환 서비스서버, 음성인식 기반 감지 및 추적 노드 추가
-  - slam 맵 기반 자동충전 위치 설정
+- 24.12.12(오전) 하드웨어 브링업20%, 김재환
+  - realsense SDK 및 realsense wrapper 설치
+  - realsense-viewer로 카메라 정상 연결 및 작동 확인
+  - 참고한 링크-https://github.com/IntelRealSense/realsense-ros
 <hr/> 
 
 ## 오프라인 음성 인식 엔진 기반 360도 음성 감지 및 추적
@@ -90,7 +92,8 @@
 - 24.11.28(오전) 음성 인식 엔진 학습 2%, 장재희
   - Google Assistant API 사용 방법 학습
 - 24.11.28(오후) 하드웨어 탐구 2%, 장재희
-  - ReSpeaker USB Mic Array 사용 방법 학습 
+  - ReSpeaker USB Mic Array 사용 방법 학습
+  - 참고한 링크-https://wiki.seeedstudio.com/ReSpeaker-USB-Mic-Array/
 - 24.11.29(오전) 음성 인식 엔진 학습 2%, 장재희
   - OpenAI Whisper 사용 방법 학습
   - OpenAI Whisper 설치
@@ -124,7 +127,7 @@
 <hr/>
 
 ## 사물과 사람을 구분하여 인식
-- 구현률 : 50%(누적)
+- 구현률 : 70%(누적)
 - 24.11.25(오전), 기본 소프트웨어 작업 10%, 하정민
   - ubuntu환경에서 realsense 정상 작동 확인
 - 24.11.25(오후), 기본 소프트웨어 작업 10%, 하정민
@@ -139,18 +142,26 @@
     - Jetson Nano에서 Intel RealSense 카메라를 사용하기 위해 git을 통해 librealsense를 설치
 - 24.12.11(오후), 기본 소프트웨어 작업 10%, 하정민
   -  ./buildLibrealsense.sh -j 2 명령어를 사용해 빌드를 하는 중 GCC와 CUDA 버전은 9.X로 되어 있어야 한다.
-  -  python3 yolov8_rs.py 를 통해 realsense d435 카메라를 통해 yolo인식이 되는 것을 확인 
+  -  python3 yolov8_rs.py 를 통해 realsense d435 카메라를 통해 yolo인식이 되는 것을 확인
+- 24.12.12(오후), 기본 소프트웨어 작업 20%, 김재환
+  - ros2-foxy 환경에서는 python 3.8을 기준으로 하기때문에 yolov5까지만 사용가능함
+  - yolov5 설치
+  - yolov5를 사용하는 물체인식 오픈소스 패키지를 설치함
+  - 참고한 링크-https://github.com/Ar-Ray-code/YOLOv5-ROS?tab=readme-ov-file
 <hr/>
 
 ## 배터리 부족시 허브로 돌아가 자동충전
-- 구현률 : 40%(누적)
+- 구현률 : 50%(누적)
 - 24.11.25(오전), 하드웨어 구성 20%/김재환
   - 충전허브 3D 모델링, 실물 출력
+  - 제작모델 링크-https://www.tinkercad.com/users/2pODkDPEdpH
 - 24.11.25(오전), 하드웨어 구성 20%/김재환
   - 출력물 조립, 충전 전선 제작
-- 24.12.12(오전), 맵작성 ??% 하정민
+- 24.12.12(오후), 맵작성 10% 장재희
   - 버거를 이용해 카토그래퍼로 맵 그리기
   - 그려진 맵과 똑같은 환경을 가제보로 제작
   - /battery_state라는 정수형 토픽이 30 이하면 특정한 위치로 이동하게 만들기
+- 24.12.??(오전), 하드웨어 구성 ??%/김재환
+  - slam 맵 기반 자동충전 위치 설정
 <hr/>
 
