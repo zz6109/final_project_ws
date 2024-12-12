@@ -117,11 +117,22 @@
 <hr/>
 
 ## 사물과 사람을 구분하여 인식
-- 구현률 : 10%(누적)
+- 구현률 : 50%(누적)
 - 24.11.25(오전), 기본 소프트웨어 작업 5%, 하정민
   - ubuntu환경에서 realsense 정상 작동 확인
 - 24.11.25(오후), 기본 소프트웨어 작업 5%, 하정민
   - realsense 기본 코드 테스트 및 호환성 점검
+- 24.12.10(오전)
+  - 유튜브 영상 참고 https://www.youtube.com/watch?v=xqroBkpf3lY 
+  - python3-pip, python-deteutil 설치
+  - NAVIDI Installing PyTorch for Jetson Platform 사이트의 Prerequisites and Installation를 참고하여 v512 pytorch 설치
+- 24.12.10(오후)
+  - NVIDIA PyTorch for Jetson 사이트의 Installation을 참고하여 v0.16.0 설치
+- 24.12.11(오전)
+    - Jetson Nano에서 Intel RealSense 카메라를 사용하기 위해 git을 통해 librealsense를 설치
+- 24.12.11(오후)
+  -  ./buildLibrealsense.sh -j 2 명령어를 사용해 빌드를 하는 중 GCC와 CUDA 버전은 9.X로 되어 있어야 한다.
+  -  python3 yolov8_rs.py 를 통해 realsense d435 카메라를 통해 yolo인식이 되는 것을 확인 
 <hr/>
 
 ## 배터리 부족시 허브로 돌아가 자동충전
