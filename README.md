@@ -2,7 +2,11 @@
 - 붕괴 및 화재 건물내에서 구조 가능한 로봇
 # 하드웨어 구성도
 ![스크린샷 2024-12-12 21-06-17](https://github.com/user-attachments/assets/e2c98330-53e2-46c0-bd2c-df7ce41aba47)
+<hr/>
+
 # 시퀀스 구상도
+![스크린샷 2024-12-12 22-04-07](https://github.com/user-attachments/assets/6e97b6d0-b16d-4179-8ffa-832161113779)
+<hr/>
 
 # 프로젝트 멤버
 - 김재환, 장재희, 하정민
