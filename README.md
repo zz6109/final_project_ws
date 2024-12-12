@@ -4,8 +4,15 @@
 - 김재환, 장재희, 하정민
 # 구현 할 주 기능
 - 360도 음성 감지 및 추적
+  - 음성 인식 후 방향 탐지 능력의 정확도가 70%정도임
+  - custom_bringup, custom_serviece 패키지로 관련 기능 구현
 - 사물과 사람을 구분하여 인식
+  - realsense_ros 패키지 사용
+  - 사람이면 True, 사물이면 False 토픽 발행 노드 구현
 - 배터리 부족시 허브로 돌아가 자동충전
+  - 배터리 부족을 판단할 노드를 생성할 수 없음
+  - 관련 패키지가 험블 이상 버전을 지원해서 의존성 문제로 폭시환경에서는 어려움이 있음
+  - 전체 시퀸스 종료 시 혹은 특정 명령시 충전소로 돌아가는것으로 변경
 <hr/>
 
 # 프로젝트 전체 완성률 < 66% >
@@ -118,19 +125,19 @@
 
 ## 사물과 사람을 구분하여 인식
 - 구현률 : 50%(누적)
-- 24.11.25(오전), 기본 소프트웨어 작업 5%, 하정민
+- 24.11.25(오전), 기본 소프트웨어 작업 10%, 하정민
   - ubuntu환경에서 realsense 정상 작동 확인
-- 24.11.25(오후), 기본 소프트웨어 작업 5%, 하정민
+- 24.11.25(오후), 기본 소프트웨어 작업 10%, 하정민
   - realsense 기본 코드 테스트 및 호환성 점검
-- 24.12.10(오전)
+- 24.12.10(오전), 기본 소프트웨어 작업 5%, 하정민
   - 유튜브 영상 참고 https://www.youtube.com/watch?v=xqroBkpf3lY 
   - python3-pip, python-deteutil 설치
   - NAVIDI Installing PyTorch for Jetson Platform 사이트의 Prerequisites and Installation를 참고하여 v512 pytorch 설치
-- 24.12.10(오후)
+- 24.12.10(오후), 기본 소프트웨어 작업 5%, 하정민
   - NVIDIA PyTorch for Jetson 사이트의 Installation을 참고하여 v0.16.0 설치
-- 24.12.11(오전)
+- 24.12.11(오전), 기본 소프트웨어 작업 10%, 하정민
     - Jetson Nano에서 Intel RealSense 카메라를 사용하기 위해 git을 통해 librealsense를 설치
-- 24.12.11(오후)
+- 24.12.11(오후), 기본 소프트웨어 작업 10%, 하정민
   -  ./buildLibrealsense.sh -j 2 명령어를 사용해 빌드를 하는 중 GCC와 CUDA 버전은 9.X로 되어 있어야 한다.
   -  python3 yolov8_rs.py 를 통해 realsense d435 카메라를 통해 yolo인식이 되는 것을 확인 
 <hr/>
