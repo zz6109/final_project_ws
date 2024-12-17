@@ -1,0 +1,13 @@
+# 목표 (Goal)
+float32 safe_distance       
+float32 front_angle_range   
+
+---
+
+# 결과 (Result)
+bool obstacle_detected   
+
+---
+
+# 피드백 (Feedback)
+float32 current_distance    
