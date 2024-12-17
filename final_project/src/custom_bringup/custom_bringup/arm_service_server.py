@@ -1,7 +1,7 @@
 import rclpy
 from rclpy.node import Node
 # from rclpy.executors import MultiThreadedExecutor
-from custom_service.srv import ArmService
+from custom_interface.srv import ArmService
 from control_msgs.action import FollowJointTrajectory
 from trajectory_msgs.msg import JointTrajectoryPoint
 from rclpy.action import ActionClient
@@ -63,7 +63,8 @@ class ArmController(Node):
         self.action_client.send_goal_async(goal_msg, feedback_callback=self.feedback_callback)
     
     def feedback_callback(self, feedback):
-        self.get_logger().info(f'Received feedback: {feedback}')
+        # self.get_logger().info(f'Received feedback: {feedback}')
+        pass
 
 def main(args=None):
     rclpy.init(args=args)
@@ -79,4 +80,3 @@ def main(args=None):
 if __name__ == '__main__':
     main()
 
-# ros2 service call /arm_control_service custom_service/srv/ArmService "{mode : 'mode1'}"

@@ -10,10 +10,8 @@ class CustomControlNode(Node):
     def __init__(self):
         super().__init__('custom_control')
 
-        # Publisher for /mission topic
         self.mission_publisher = self.create_publisher(String, 'mission', 10)
 
-        # Subscriber for /detection_result
         self.detection_subscription = self.create_subscription(
             String,
             '/detection_result',
@@ -21,7 +19,6 @@ class CustomControlNode(Node):
             10
         )
 
-        # Subscriber for /position
         self.position_subscription = self.create_subscription(
             String,
             '/position',
@@ -30,7 +27,10 @@ class CustomControlNode(Node):
         )
 
         self.cli = self.create_client(ArmService, 'arm_control_service')
-        self.value = None  # 변수에 로봇의 위치를 저장하기 위한 초기화
+        while not self.cli.wait_for_service(timeout_sec=1.0):
+            self.get_logger().info('Waiting for "arm_control_service" to become available...')
+        
+        # self.value = None  
 
     def detection_callback(self, msg):
         """Callback function for /detection_result topic."""
@@ -42,7 +42,6 @@ class CustomControlNode(Node):
         elif message == 'object':
             self.false_condition()
 
-    # 다른 노드에서 로봇의 위치를 /position이라는 토픽으로 지속발행중-이때의 토픽을 구독해서 변수 value에 저장
     def position_callback(self, msg):
         """Callback function for /position topic to update current position."""
         self.value = msg.data
@@ -51,9 +50,9 @@ class CustomControlNode(Node):
     def true_condition(self):
         """Actions to perform if the message is 'person'."""
         self.get_logger().info('Executing True condition...')
-        # 경고음 출력: 요구조자 발견X3
-        self.play_mp3("/home/autocar/warning_sound.mp3")
-        # 미션 완료 및 현재 위치좌표(value) 라는 토픽발행
+        self.play_mp3("/home/autocar/warning_sound.mp3")  # 경고음 재생
+
+        # 미션 완료 메시지 발행
         if self.value is not None:
             msg = String()
             msg.data = f"complete {self.value}"
@@ -62,31 +61,44 @@ class CustomControlNode(Node):
         else:
             self.get_logger().warn("Position not yet received. Unable to publish complete message.")
 
-        # mode3 서비스콜 및 커스텀 브링업으로 생성된 모든 노드 종료
-        self.call_mode_service("mode3")
+        # mode3 서비스 호출
+        self.call_service("mode3")
 
     def false_condition(self):
         """Actions to perform if the message is 'object'."""
         self.get_logger().info('Executing False condition...')
-        # mode1 서비스콜
-        self.call_mode_service("mode1")
-        # /cmd_vel, twist.linear.x 0.5로 전진 벽나올때 까지(send_goal)
+        self.call_service("mode1")  # mode1 서비스 호출
 
     def play_mp3(self, file_path):
+        """Play an MP3 file."""
         try:
-            from playsound import playsound
             self.get_logger().info(f"MP3 파일 재생: {file_path}")
             playsound(file_path)
-        except ImportError:
-            self.get_logger().error("playsound 라이브러리가 설치되어 있지 않습니다.")
         except Exception as e:
-            self.get_logger().error(f"오류 발생: {e}")
-          
-    def call_mode_service(self, mode):
+            self.get_logger().error(f"MP3 재생 오류: {e}")
+
+    def call_service(self, mode):
+        """Call arm_control_service with a specific mode."""
+        if not self.cli.wait_for_service(timeout_sec=1.0):
+            self.get_logger().error('Service not available!')
+            return
+        
         request = ArmService.Request()
-        request.data = mode
-        self.future = self.cli.call_async(request)
-        self.future.add_done_callback(self.mode_service_callback)
+        request.mode = mode
+        
+        self.get_logger().info(f'Calling service with mode: {mode}')
+        future = self.cli.call_async(request) # 비동기 처리
+        
+        future.add_done_callback(self.service_callback)
+
+    def service_callback(self, future):
+        """Callback function after the service response."""
+        try:
+            response = future.result()
+            self.get_logger().info(f'Service response: {response.message}')
+        except Exception as e:
+            self.get_logger().error(f'Service call failed: {e}')
+
 
 def main(args=None):
     rclpy.init(args=args)
@@ -99,6 +111,7 @@ def main(args=None):
     finally:
         node.destroy_node()
         rclpy.shutdown()
+
 
 if __name__ == '__main__':
     main()
