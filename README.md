@@ -9,7 +9,7 @@
 <hr/>
 
 # 시연 영상 링크
-- 
+- https://youtu.be/uKrsmAo9LQY
 <hr/>
 
 # 프로젝트 멤버
